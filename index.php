@@ -56,12 +56,13 @@ if(isset($myImage) && $myImage['error'] == 0){
     <hr style="width:90%;" />
 
     <section id="affichageImage"> 
-        <?= $isPost && isset($urlImage) ? 
-            "<img style='max-width:400px;' src= $urlImage alt='une image chargée' /> 
+        <?php if ($isPost && isset($urlImage)): ?>
+            <img style='max-width:400px;' src= $urlImage alt='une image chargée' /> 
             <br>
             Lien de votre image : <a href='$urlImage' target='_blank' > cliquez-ici </a>" 
-            : "<h3 style='text-align:center'> Votre image s'affichera ici </h3>" 
-        ?>
+        <?php else : ?>
+            <h3 style='text-align:center'> Votre image s'affichera ici </h3>"
+        <?php endif ?>
     </section>
 
 </body>
